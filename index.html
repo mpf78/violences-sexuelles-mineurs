@@ -3,130 +3,234 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Protection Mineurs - Portail Professionnel</title>
+    <title>Prévention Violences Sexuelles - MPF 78</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        .panic-button { transition: all 0.3s ease; }
-        .panic-button:hover { background-color: #1a202c !important; }
+        .gradient-blue { background: linear-gradient(135deg, #001e3d 0%, #003a70 100%); }
+        .page-content { display: none; }
+        .page-content.active { display: block; animation: fadeIn 0.3s ease-in-out; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
     </style>
 </head>
-<body class="bg-slate-50 text-slate-900 font-sans">
+<body class="bg-slate-50 text-slate-900 font-sans min-h-screen flex flex-col">
 
-    <div class="bg-red-700 text-white py-2 px-4 flex justify-between items-center sticky top-0 z-50 shadow-lg">
-        <div class="flex items-center space-x-4">
-            <span class="font-bold uppercase tracking-widest text-sm">Urgence :</span>
-            <a href="tel:119" class="bg-white text-red-700 px-3 py-1 rounded-full font-black hover:bg-red-100 transition">119</a>
-            <span class="hidden md:inline text-sm">Appel gratuit 24h/24</span>
-        </div>
-        <a href="https://www.google.fr" class="panic-button bg-slate-800 text-xs px-3 py-1 rounded border border-white/30">
-            QUITTER LE SITE (Fermeture rapide)
-        </a>
-    </div>
+    <a href="https://www.google.fr" class="fixed top-4 right-4 z-50 bg-red-600 text-white px-3 py-2 rounded-full shadow-lg text-[10px] font-bold uppercase hover:bg-red-700 transition">
+        Quitter vite <i class="fas fa-times ml-1"></i>
+    </a>
 
-    <header class="bg-white border-b border-slate-200 py-12 px-6">
-        <div class="max-w-5xl mx-auto text-center">
-            <h1 class="text-3xl md:text-5xl font-extrabold text-slate-800 mb-4">
-                Prévention des Violences Sexuelles <span class="text-blue-600">sur Mineurs</span>
-            </h1>
-            <p class="text-xl text-slate-600 max-w-2xl mx-auto">
-                Le portail de ressources dédié aux professionnels de l'enfance : enseignants, animateurs, éducateurs.
-            </p>
-        </div>
+    <header class="gradient-blue text-white py-8 px-6 text-center shadow-lg">
+        <h1 class="text-xl md:text-2xl font-black tracking-tighter uppercase mb-1">Maison de Protection des Familles 78</h1>
+        <p class="text-xs opacity-80 font-medium">Gendarmerie Nationale - Yvelines</p>
     </header>
 
-    <nav class="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-4 p-6 -mt-8">
-        <a href="#comprendre" class="bg-white p-6 shadow-md rounded-xl text-center hover:shadow-xl transition border-b-4 border-blue-500">
-            <i class="fa-solid fa-book-open text-blue-500 text-2xl mb-2"></i>
-            <span class="block font-bold">Comprendre</span>
-        </a>
-        <a href="#reperer" class="bg-white p-6 shadow-md rounded-xl text-center hover:shadow-xl transition border-b-4 border-orange-500">
-            <i class="fa-solid fa-eye text-orange-500 text-2xl mb-2"></i>
-            <span class="block font-bold">Repérer</span>
-        </a>
-        <a href="#agir" class="bg-white p-6 shadow-md rounded-xl text-center hover:shadow-xl transition border-b-4 border-red-500">
-            <i class="fa-solid fa-shield-halved text-red-500 text-2xl mb-2"></i>
-            <span class="block font-bold">Agir / Signaler</span>
-        </a>
-        <a href="#ressources" class="bg-white p-6 shadow-md rounded-xl text-center hover:shadow-xl transition border-b-4 border-green-500">
-            <i class="fa-solid fa-file-pdf text-green-500 text-2xl mb-2"></i>
-            <span class="block font-bold">Ressources</span>
-        </a>
-    </nav>
+    <main class="flex-grow max-w-2xl mx-auto px-4 py-6 w-full">
 
-    <section id="agir" class="max-w-5xl mx-auto py-16 px-6">
-        <div class="bg-blue-900 text-white rounded-3xl p-8 md:p-12 shadow-2xl relative overflow-hidden">
-            <div class="relative z-10">
-                <h2 class="text-3xl font-bold mb-6 italic">"J'ai un doute, que dois-je faire ?"</h2>
-                <div class="space-y-6">
-                    <div class="flex items-start space-x-4">
-                        <div class="bg-blue-500 text-white rounded-full h-8 w-8 flex items-center justify-center flex-shrink-0 font-bold">1</div>
-                        <p><strong class="text-blue-200">Ne restez pas seul :</strong> Parlez-en à votre supérieur hiérarchique ou au référent protection de votre structure.</p>
+        <div id="home-page" class="page-content active">
+            <h2 class="text-lg font-bold text-slate-700 mb-6 text-center italic">Sélectionnez une thématique de prévention :</h2>
+            <div class="grid grid-cols-1 gap-4">
+                
+                <button onclick="showPage('constat')" class="flex items-center p-5 bg-white rounded-xl shadow-sm border border-slate-200 hover:border-blue-500 transition text-left group">
+                    <div class="bg-blue-100 text-blue-600 p-4 rounded-lg mr-4 group-hover:bg-blue-600 group-hover:text-white transition w-[54px] text-center">
+                        <i class="fas fa-chart-line text-xl"></i>
                     </div>
-                    <div class="flex items-start space-x-4">
-                        <div class="bg-blue-500 text-white rounded-full h-8 w-8 flex items-center justify-center flex-shrink-0 font-bold">2</div>
-                        <p><strong class="text-blue-200">Évaluez la situation :</strong> Danger immédiat ? Contactez le procureur. Risque de danger ? Rédigez une Information Préoccupante (IP).</p>
+                    <div>
+                        <h3 class="font-bold text-slate-800">Le constat et les chiffres</h3>
+                        <p class="text-xs text-slate-500 mt-1">Statistiques et réalité du terrain</p>
                     </div>
-                    <div class="flex items-start space-x-4">
-                        <div class="bg-blue-500 text-white rounded-full h-8 w-8 flex items-center justify-center flex-shrink-0 font-bold">3</div>
-                        <p><strong class="text-blue-200">Conseil juridique :</strong> Le secret professionnel ne s'applique pas en cas de privations ou sévices infligés à un mineur (Art. 226-14 du Code Pénal).</p>
+                </button>
+
+                <button onclick="showPage('violences')" class="flex items-center p-5 bg-white rounded-xl shadow-sm border border-slate-200 hover:border-orange-500 transition text-left group">
+                    <div class="bg-orange-100 text-orange-600 p-4 rounded-lg mr-4 group-hover:bg-orange-600 group-hover:text-white transition w-[54px] text-center">
+                        <i class="fas fa-gavel text-xl"></i>
                     </div>
-                </div>
-                <button class="mt-8 bg-white text-blue-900 font-bold px-8 py-3 rounded-lg hover:bg-blue-50 transition">
-                    Télécharger le guide de signalement (PDF)
+                    <div>
+                        <h3 class="font-bold text-slate-800">Types de violences</h3>
+                        <p class="text-xs text-slate-500 mt-1">Définitions légales et sanctions</p>
+                    </div>
+                </button>
+
+                <button onclick="showPage('signes')" class="flex items-center p-5 bg-white rounded-xl shadow-sm border border-slate-200 hover:border-yellow-500 transition text-left group">
+                    <div class="bg-yellow-100 text-yellow-600 p-4 rounded-lg mr-4 group-hover:bg-yellow-600 group-hover:text-white transition w-[54px] text-center">
+                        <i class="fas fa-eye text-xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-slate-800">Signes d'alerte</h3>
+                        <p class="text-xs text-slate-500 mt-1">Repérer les changements de comportement</p>
+                    </div>
+                </button>
+
+                <button onclick="showPage('parole')" class="flex items-center p-5 bg-white rounded-xl shadow-sm border border-slate-200 hover:border-green-500 transition text-left group">
+                    <div class="bg-green-100 text-green-600 p-4 rounded-lg mr-4 group-hover:bg-green-600 group-hover:text-white transition w-[54px] text-center">
+                        <i class="fas fa-comments text-xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-slate-800">Recueillir la parole</h3>
+                        <p class="text-xs text-slate-500 mt-1">Comment réagir face à une confidence</p>
+                    </div>
+                </button>
+
+                <button onclick="showPage('protection')" class="flex items-center p-5 bg-white rounded-xl shadow-sm border border-slate-200 hover:border-indigo-500 transition text-left group">
+                    <div class="bg-indigo-100 text-indigo-600 p-4 rounded-lg mr-4 group-hover:bg-indigo-600 group-hover:text-white transition w-[54px] text-center">
+                        <i class="fas fa-user-shield text-xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-slate-800">Se protéger / Ambiguïté</h3>
+                        <p class="text-xs text-slate-500 mt-1">Postures pour encadrants et bénévoles</p>
+                    </div>
+                </button>
+
+                <button onclick="showPage('stop')" class="flex items-center p-5 bg-red-50 rounded-xl shadow-sm border border-red-200 hover:border-red-600 transition text-left group">
+                    <div class="bg-red-600 text-white p-4 rounded-lg mr-4">
+                        <i class="fas fa-hand-paper text-xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-red-900">Aide & Dispositif STOP</h3>
+                        <p class="text-xs text-red-700 mt-1">Prévenir le passage à l'acte</p>
+                    </div>
                 </button>
             </div>
         </div>
-    </section>
 
-    <section id="reperer" class="bg-slate-100 py-16 px-6">
-        <div class="max-w-5xl mx-auto">
-            <h2 class="text-3xl font-bold text-slate-800 mb-8 border-l-8 border-orange-500 pl-4">Les signaux d'alerte</h2>
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="bg-white p-6 rounded-lg shadow">
-                    <h3 class="font-bold text-orange-600 mb-3 underline">Physiques</h3>
-                    <ul class="text-sm space-y-2 text-slate-600 italic">
-                        <li>• Traces suspectes / blessures répétées</li>
-                        <li>• Troubles somatiques (maux de ventre...)</li>
-                        <li>• Fatigue chronique intense</li>
-                    </ul>
+        <div id="constat" class="page-content">
+            <button onclick="showPage('home-page')" class="mb-6 text-blue-600 font-bold flex items-center">
+                <i class="fas fa-arrow-left mr-2"></i> Retour
+            </button>
+            <h2 class="text-2xl font-black text-slate-900 mb-6 uppercase">Le constat</h2>
+            <div class="space-y-6">
+                <div class="bg-blue-900 text-white p-6 rounded-2xl shadow-inner">
+                    <p class="text-4xl font-black mb-1">160 000</p>
+                    <p class="text-sm opacity-90 uppercase tracking-wide">Enfants victimes chaque année en France</p>
                 </div>
-                <div class="bg-white p-6 rounded-lg shadow">
-                    <h3 class="font-bold text-orange-600 mb-3 underline">Comportementaux</h3>
-                    <ul class="text-sm space-y-2 text-slate-600 italic">
-                        <li>• Repli sur soi ou agressivité soudaine</li>
-                        <li>• Désinvestissement scolaire</li>
-                        <li>• Fugues ou évitement de certains lieux</li>
-                    </ul>
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="bg-white p-4 rounded-xl border border-slate-200 text-center">
+                        <span class="text-3xl font-black text-blue-600">80%</span>
+                        <p class="text-[10px] text-slate-500 mt-2 uppercase">Cercle familial ou amical</p>
+                    </div>
+                    <div class="bg-white p-4 rounded-xl border border-slate-200 text-center">
+                        <span class="text-3xl font-black text-blue-600">1 / 5</span>
+                        <p class="text-[10px] text-slate-500 mt-2 uppercase">Enfants victimes (CIIVISE)</p>
+                    </div>
                 </div>
-                <div class="bg-white p-6 rounded-lg shadow">
-                    <h3 class="font-bold text-orange-600 mb-3 underline">Sexualisés</h3>
-                    <ul class="text-sm space-y-2 text-slate-600 italic">
-                        <li>• Connaissances sexuelles précoces</li>
-                        <li>• Jeux sexuels mimétiques</li>
-                        <li>• Hyper-érotisation de l'attitude</li>
-                    </ul>
+                <div class="bg-white p-6 rounded-xl border border-slate-200 text-sm space-y-3">
+                    <p>• <strong>Délai de parole :</strong> Plus de 10 ans en moyenne.</p>
+                    <p>• <strong>Profil :</strong> 78% de filles, mais les garçons sont tout autant vulnérables.</p>
                 </div>
             </div>
         </div>
-    </section>
 
-    <footer class="bg-slate-900 text-slate-400 py-12 px-6">
-        <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-8">
-            <div>
-                <h4 class="text-white font-bold mb-4 uppercase tracking-wider">Liens officiels</h4>
-                <ul class="space-y-2 text-sm">
-                    <li><a href="#" class="hover:text-white">Ministère de l'Éducation Nationale</a></li>
-                    <li><a href="#" class="hover:text-white">Portail Enfance en Danger (ONPE)</a></li>
-                    <li><a href="#" class="hover:text-white">Conseil de l'Europe - Campagne 1 sur 5</a></li>
-                </ul>
+        <div id="violences" class="page-content">
+            <button onclick="showPage('home-page')" class="mb-6 text-blue-600 font-bold flex items-center">
+                <i class="fas fa-arrow-left mr-2"></i> Retour
+            </button>
+            <h2 class="text-2xl font-black text-slate-900 mb-6 uppercase">Infractions & Sanctions</h2>
+            <div class="space-y-4">
+                <div class="bg-white p-4 rounded-xl border-l-4 border-red-600 shadow-sm">
+                    <h3 class="font-bold text-red-700">VIOL (Art. 222-23 CP)</h3>
+                    <p class="text-xs mt-1">Pénétration sexuelle commise par violence, contrainte, menace ou surprise.</p>
+                    <p class="text-xs mt-2 font-bold text-red-900">Sanction : 20 ans de réclusion criminelle.</p>
+                </div>
+                <div class="bg-white p-4 rounded-xl border-l-4 border-orange-500 shadow-sm">
+                    <h3 class="font-bold text-orange-700">AGRESSION SEXUELLE (Art. 222-22 CP)</h3>
+                    <p class="text-xs mt-1">Atteinte sexuelle sans pénétration (attouchements).</p>
+                    <p class="text-xs mt-2 font-bold text-orange-900">Sanction : 10 ans et 150 000€ d'amende.</p>
+                </div>
+                <div class="bg-white p-4 rounded-xl border-l-4 border-purple-600 shadow-sm">
+                    <h3 class="font-bold text-purple-700">INCESTE</h3>
+                    <p class="text-xs mt-1">Violence sexuelle commise par un ascendant ou personne ayant autorité.</p>
+                </div>
+                <div class="bg-indigo-900 text-white p-5 rounded-xl text-xs space-y-2 mt-6">
+                    <p><strong>L'AUTORITÉ :</strong> Constitue une circonstance aggravante systématique.</p>
+                    <p><strong>L'ÉCART D'ÂGE :</strong> Si > 5 ans avec un mineur de 15 ans, le non-consentement est présumé (Loi 2021).</p>
+                </div>
             </div>
-            <div class="text-right">
-                <p class="text-sm">Ce site est un outil de sensibilisation. En cas de doute sérieux, contactez toujours les autorités compétentes.</p>
-                <p class="mt-4 font-bold text-white">Protéger un enfant est un devoir légal.</p>
+        </div>
+
+        <div id="signes" class="page-content">
+            <button onclick="showPage('home-page')" class="mb-6 text-blue-600 font-bold flex items-center">
+                <i class="fas fa-arrow-left mr-2"></i> Retour
+            </button>
+            <h2 class="text-2xl font-black text-slate-900 mb-4 uppercase">Signaux d'alerte</h2>
+            <p class="text-xs text-slate-500 mb-6 italic">Cherchez la rupture brutale de comportement.</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+                <div class="bg-blue-50 p-4 rounded-xl border-t-4 border-blue-400">
+                    <h3 class="font-bold text-blue-800 mb-2">REPLI (L'enfant s'éteint)</h3>
+                    <p class="text-xs">Isolement, mutisme, régression (pipi au lit), maux de ventre fréquents.</p>
+                </div>
+                <div class="bg-orange-50 p-4 rounded-xl border-t-4 border-orange-400">
+                    <h3 class="font-bold text-orange-800 mb-2">EXCÈS (L'enfant explose)</h3>
+                    <p class="text-xs">Agressivité, hyper-sexualisation, troubles alimentaires, prise de risque.</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="parole" class="page-content">
+            <button onclick="showPage('home-page')" class="mb-6 text-blue-600 font-bold flex items-center">
+                <i class="fas fa-arrow-left mr-2"></i> Retour
+            </button>
+            <h2 class="text-2xl font-black text-slate-900 mb-6 uppercase">Comment réagir ?</h2>
+            <div class="space-y-4 text-sm">
+                <div class="bg-white p-4 rounded-lg border shadow-sm">
+                    <strong>1. Le lieu :</strong> Calme et neutre. Sans barrière physique.
+                </div>
+                <div class="bg-white p-4 rounded-lg border shadow-sm">
+                    <strong>2. L'écoute :</strong> Ne pas couper la parole. Pas de questions suggestives.
+                </div>
+                <div class="bg-white p-4 rounded-lg border shadow-sm">
+                    <strong>3. Réconfort :</strong> "Je te crois", "Ce n'est pas ta faute".
+                </div>
+                <div class="bg-blue-900 text-white p-4 rounded-lg font-bold">
+                    4. SIGNALER : Noter les mots exacts et appeler le 119 ou le 17.
+                </div>
+            </div>
+        </div>
+
+        <div id="protection" class="page-content">
+            <button onclick="showPage('home-page')" class="mb-6 text-blue-600 font-bold flex items-center">
+                <i class="fas fa-arrow-left mr-2"></i> Retour
+            </button>
+            <h2 class="text-2xl font-black text-slate-900 mb-6 uppercase">Postures professionnelles</h2>
+            <div class="space-y-4 text-sm">
+                <p class="bg-white p-4 rounded shadow-sm border-l-4 border-indigo-600">• Ne jamais s'isoler seul avec un mineur dans une pièce fermée.</p>
+                <p class="bg-white p-4 rounded shadow-sm border-l-4 border-indigo-600">• Limiter le contact physique au strict nécessaire.</p>
+                <p class="bg-white p-4 rounded shadow-sm border-l-4 border-indigo-600">• Pas d'échanges privés sur réseaux sociaux personnels.</p>
+            </div>
+        </div>
+
+        <div id="stop" class="page-content">
+            <button onclick="showPage('home-page')" class="mb-6 text-blue-600 font-bold flex items-center">
+                <i class="fas fa-arrow-left mr-2"></i> Retour
+            </button>
+            <div class="bg-red-700 text-white p-8 rounded-2xl text-center">
+                <h2 class="text-2xl font-black mb-4 uppercase">Dispositif STOP</h2>
+                <p class="text-sm mb-6">Attirances pour les mineurs ? Ne passez pas à l'acte. Anonyme et gratuit.</p>
+                <a href="tel:0806231063" class="block w-full bg-white text-red-700 font-black py-4 rounded-xl text-xl mb-4 shadow-lg">0806 23 10 63</a>
+                <a href="https://www.dispositif-stop.fr" target="_blank" class="text-xs underline opacity-80">Lien vers le site officiel</a>
+            </div>
+        </div>
+
+    </main>
+
+    <footer class="bg-slate-900 text-white p-6 mt-auto">
+        <div class="max-w-2xl mx-auto flex flex-col items-center">
+            <div class="flex justify-around w-full mb-6 font-black text-xl border-b border-slate-800 pb-4">
+                <a href="tel:119" class="text-blue-400">119</a>
+                <a href="tel:17" class="text-blue-400">17</a>
+                <a href="tel:114" class="text-blue-400">114</a>
+            </div>
+            <div class="flex items-center space-x-4">
+                <div class="w-12 h-12 bg-slate-800 rounded border border-slate-700 flex items-center justify-center text-[7px] text-center italic p-1">LOGO MPF 78</div>
+                <p class="text-[9px] opacity-50 uppercase tracking-widest">Maison de Protection des Familles 78</p>
             </div>
         </div>
     </footer>
 
+    <script>
+        function showPage(pageId) {
+            document.querySelectorAll('.page-content').forEach(p => p.classList.remove('active'));
+            document.getElementById(pageId).classList.add('active');
+            window.scrollTo(0,0);
+        }
+    </script>
 </body>
 </html>
