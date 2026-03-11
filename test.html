@@ -3,174 +3,146 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prévention Violences Sexuelles Mineurs - MPF 78</title>
+    <title>Prévention Violences Sexuelles - MPF 78</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         .gradient-blue { background: linear-gradient(135deg, #001e3d 0%, #003a70 100%); }
-        .accordion-content { max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; }
-        .accordion-item.active .accordion-content { max-height: 2000px; transition: max-height 0.5s ease-in; }
-        .accordion-item.active .chevron { transform: rotate(180deg); }
+        .page-content { display: none; }
+        .page-content.active { display: block; animation: fadeIn 0.3s ease-in-out; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
     </style>
 </head>
-<body class="bg-slate-100 text-slate-900 font-sans leading-relaxed">
+<body class="bg-slate-50 text-slate-900 font-sans min-h-screen flex flex-col">
 
-    <a href="https://www.google.fr" class="fixed top-4 right-4 z-50 bg-red-600 text-white px-4 py-2 rounded-full shadow-lg text-xs font-bold uppercase hover:bg-red-700 transition">
+    <a href="https://www.google.fr" class="fixed top-4 right-4 z-50 bg-red-600 text-white px-3 py-2 rounded-full shadow-lg text-[10px] font-bold uppercase hover:bg-red-700 transition">
         Quitter vite <i class="fas fa-times ml-1"></i>
     </a>
 
-    <header class="gradient-blue text-white py-10 px-6 text-center shadow-lg">
-        <h1 class="text-2xl md:text-3xl font-black tracking-tighter uppercase mb-2">Maison de Protection des Familles 78</h1>
-        <div class="h-1 w-20 bg-blue-500 mx-auto mb-4"></div>
-        <p class="text-sm opacity-90 font-medium">Prévention et sensibilisation sur les violences sexuelles faites aux mineurs</p>
+    <header class="gradient-blue text-white py-8 px-6 text-center shadow-lg">
+        <h1 class="text-xl md:text-2xl font-black tracking-tighter uppercase mb-1">Maison de Protection des Familles 78</h1>
+        <p class="text-xs opacity-80 font-medium">Gendarmerie Nationale - Yvelines</p>
     </header>
 
-    <main class="max-w-2xl mx-auto px-4 py-8 space-y-4">
+    <main class="flex-grow max-w-2xl mx-auto px-4 py-6 w-full">
 
-        <div class="accordion-item bg-white rounded-lg shadow-sm border border-slate-200">
-            <button onclick="toggleAccordion(this)" class="w-full flex justify-between items-center p-5 text-left font-bold text-slate-800">
-                <span><i class="fas fa-chart-pie mr-3 text-blue-600"></i> Le constat et les chiffres</span>
-                <i class="fas fa-chevron-down chevron transition-transform text-slate-400"></i>
-            </button>
-            <div class="accordion-content bg-slate-50">
-                <div class="p-5 border-t border-slate-100 space-y-4">
-                    <div class="grid grid-cols-2 gap-4">
-                        <div class="bg-white p-4 rounded border-b-2 border-blue-600 text-center">
-                            <span class="text-2xl font-bold text-blue-900">1 / 5</span>
-                            <p class="text-[10px] uppercase text-slate-500">Enfants victimes</p>
-                        </div>
-                        <div class="bg-white p-4 rounded border-b-2 border-blue-600 text-center">
-                            <span class="text-2xl font-bold text-blue-900">80%</span>
-                            <p class="text-[10px] uppercase text-slate-500">Cercle proche</p>
-                        </div>
+        <div id="home-page" class="page-content active">
+            <h2 class="text-lg font-bold text-slate-700 mb-6 text-center">Sélectionnez une thématique :</h2>
+            <div class="grid grid-cols-1 gap-4">
+                
+                <button onclick="showPage('constat')" class="flex items-center p-5 bg-white rounded-xl shadow-sm border border-slate-200 hover:border-blue-500 transition text-left group">
+                    <div class="bg-blue-100 text-blue-600 p-4 rounded-lg mr-4 group-hover:bg-blue-600 group-hover:text-white transition">
+                        <i class="fas fa-chart-line text-xl"></i>
                     </div>
-                    <p class="text-sm text-slate-700 italic">Sources : Rapports CIIVISE et statistiques du Ministère de l'Intérieur.</p>
-                </div>
+                    <div>
+                        <h3 class="font-bold text-slate-800">Le constat et les chiffres</h3>
+                        <p class="text-xs text-slate-500 mt-1">Statistiques et réalité du terrain</p>
+                    </div>
+                </button>
+
+                <button onclick="showPage('violences')" class="flex items-center p-5 bg-white rounded-xl shadow-sm border border-slate-200 hover:border-orange-500 transition text-left group">
+                    <div class="bg-orange-100 text-orange-600 p-4 rounded-lg mr-4 group-hover:bg-orange-600 group-hover:text-white transition">
+                        <i class="fas fa-exclamation-triangle text-xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-slate-800">Types de violences</h3>
+                        <p class="text-xs text-slate-500 mt-1">Définir pour mieux protéger</p>
+                    </div>
+                </button>
+
+                <button onclick="showPage('signes')" class="flex items-center p-5 bg-white rounded-xl shadow-sm border border-slate-200 hover:border-yellow-500 transition text-left group">
+                    <div class="bg-yellow-100 text-yellow-600 p-4 rounded-lg mr-4 group-hover:bg-yellow-600 group-hover:text-white transition text-center w-[54px]">
+                        <i class="fas fa-eye text-xl text-center"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-slate-800">Signes d'alerte</h3>
+                        <p class="text-xs text-slate-500 mt-1">Repérer les changements</p>
+                    </div>
+                </button>
+
+                <button onclick="showPage('stop')" class="flex items-center p-5 bg-red-50 rounded-xl shadow-sm border border-red-200 hover:border-red-600 transition text-left group">
+                    <div class="bg-red-600 text-white p-4 rounded-lg mr-4">
+                        <i class="fas fa-hand-paper text-xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-red-900">Aide & Dispositif STOP</h3>
+                        <p class="text-xs text-red-700 mt-1">Prévenir le passage à l'acte</p>
+                    </div>
+                </button>
             </div>
         </div>
 
-        <div class="accordion-item bg-white rounded-lg shadow-sm border border-slate-200">
-            <button onclick="toggleAccordion(this)" class="w-full flex justify-between items-center p-5 text-left font-bold text-slate-800">
-                <span><i class="fas fa-exclamation-triangle mr-3 text-orange-500"></i> Quelles sont les violences ?</span>
-                <i class="fas fa-chevron-down chevron transition-transform text-slate-400"></i>
+        <div id="constat" class="page-content">
+            <button onclick="showPage('home-page')" class="mb-6 text-blue-600 font-bold flex items-center">
+                <i class="fas fa-arrow-left mr-2"></i> Retour au menu
             </button>
-            <div class="accordion-content bg-slate-50">
-                <div class="p-5 border-t border-slate-100 space-y-3 text-sm">
-                    <p><strong>• Viol & Agressions :</strong> Tout acte de pénétration ou contact sexuel commis avec violence, contrainte, menace ou surprise.</p>
-                    <p><strong>• Atteintes sexuelles :</strong> Contacts sexuels sans violence mais sur un mineur dont le discernement ou l'âge ne permet pas le consentement.</p>
-                    <p><strong>• Violences numériques :</strong> Cyber-grooming, chantage à la webcam, exposition forcée à la pornographie.</p>
+            <h2 class="text-2xl font-black text-slate-900 mb-6">Le constat : une urgence nationale</h2>
+            
+            <div class="space-y-6">
+                <div class="bg-blue-900 text-white p-6 rounded-2xl shadow-inner">
+                    <p class="text-4xl font-black mb-1">160 000</p>
+                    <p class="text-sm opacity-90 uppercase tracking-wide">Enfants victimes chaque année en France</p>
                 </div>
+
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="bg-white p-4 rounded-xl border border-slate-200 text-center">
+                        <span class="text-3xl font-black text-blue-600">80%</span>
+                        <p class="text-[10px] text-slate-500 mt-2">Agresseurs issus du cercle familial ou amical</p>
+                    </div>
+                    <div class="bg-white p-4 rounded-xl border border-slate-200 text-center">
+                        <span class="text-3xl font-black text-blue-600">5,5 M</span>
+                        <p class="text-[10px] text-slate-500 mt-2">Adultes ayant subi des violences dans l'enfance</p>
+                    </div>
+                </div>
+
+                <div class="bg-white p-6 rounded-xl border border-slate-200">
+                    <h4 class="font-bold text-slate-800 mb-4 border-b pb-2">Données clés (Source : CIIVISE) :</h4>
+                    <ul class="space-y-4 text-sm">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-blue-500 mt-1 mr-3"></i>
+                            <span><strong>Délai moyen de parole :</strong> Il faut souvent plus de 10 ans pour qu'une victime puisse s'exprimer.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-blue-500 mt-1 mr-3"></i>
+                            <span><strong>Profil :</strong> 78% des victimes sont des filles, mais les garçons sont aussi lourdement impactés.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-blue-500 mt-1 mr-3"></i>
+                            <span><strong>Espace numérique :</strong> 1 agression sur 4 démarre ou s'amplifie sur les réseaux sociaux.</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <p class="text-[10px] text-slate-400 italic text-center">Données mises à jour en 2026 - MPF 78</p>
             </div>
         </div>
 
-        <div class="accordion-item bg-white rounded-lg shadow-sm border border-slate-200">
-            <button onclick="toggleAccordion(this)" class="w-full flex justify-between items-center p-5 text-left font-bold text-slate-800">
-                <span><i class="fas fa-eye mr-3 text-yellow-500"></i> Signes qui doivent alerter</span>
-                <i class="fas fa-chevron-down chevron transition-transform text-slate-400"></i>
-            </button>
-            <div class="accordion-content bg-slate-50">
-                <div class="p-5 border-t border-slate-100 text-sm space-y-2">
-                    <h4 class="font-bold text-slate-700 uppercase text-xs">Sur le plan comportemental :</h4>
-                    <p>Retrait soudain, agressivité, échec scolaire, fugues.</p>
-                    <h4 class="font-bold text-slate-700 uppercase text-xs mt-3">Sur le plan physique :</h4>
-                    <p>Troubles du sommeil, maux de ventre récurrents, régression (énurésie).</p>
-                    <h4 class="font-bold text-slate-700 uppercase text-xs mt-3">Attitudes sexuées :</h4>
-                    <p>Connaissances ou jeux inadaptés à l'âge de l'enfant.</p>
-                </div>
-            </div>
-        </div>
+        </main>
 
-        <div class="accordion-item bg-white rounded-lg shadow-sm border border-slate-200">
-            <button onclick="toggleAccordion(this)" class="w-full flex justify-between items-center p-5 text-left font-bold text-slate-800">
-                <span><i class="fas fa-comment-dots mr-3 text-green-600"></i> Recueillir la parole</span>
-                <i class="fas fa-chevron-down chevron transition-transform text-slate-400"></i>
-            </button>
-            <div class="accordion-content bg-slate-50">
-                <div class="p-5 border-t border-slate-100 text-sm space-y-3">
-                    <div class="bg-green-50 p-3 rounded border-l-4 border-green-500">
-                        <strong>L'attitude :</strong> Calme, écoute active, ne pas montrer son choc.
-                    </div>
-                    <div class="bg-blue-50 p-3 rounded border-l-4 border-blue-500">
-                        <strong>Les mots :</strong> "Je te crois", "Ce n'est pas ta faute", "Merci de me faire confiance".
-                    </div>
-                    <div class="bg-red-50 p-3 rounded border-l-4 border-red-500">
-                        <strong>À ne pas faire :</strong> Poser des questions suggestives, promettre que "ça restera entre nous".
-                    </div>
-                </div>
+    <footer class="bg-slate-900 text-white p-6 mt-10">
+        <div class="max-w-2xl mx-auto flex flex-col items-center">
+            <div class="flex justify-around w-full mb-6 border-b border-slate-800 pb-6 font-black text-lg">
+                <a href="tel:119" class="text-blue-400">119</a>
+                <a href="tel:17" class="text-blue-400">17</a>
+                <a href="tel:114" class="text-blue-400 text-sm">SMS 114</a>
             </div>
-        </div>
-
-        <div class="accordion-item bg-white rounded-lg shadow-sm border border-slate-200">
-            <button onclick="toggleAccordion(this)" class="w-full flex justify-between items-center p-5 text-left font-bold text-slate-800">
-                <span><i class="fas fa-user-shield mr-3 text-indigo-600"></i> Éviter l'ambiguïté</span>
-                <i class="fas fa-chevron-down chevron transition-transform text-slate-400"></i>
-            </button>
-            <div class="accordion-content bg-slate-50">
-                <div class="p-5 border-t border-slate-100 text-sm space-y-2">
-                    <p>• Ne jamais s'isoler seul avec un mineur dans un lieu fermé.</p>
-                    <p>• Privilégier la communication dans les espaces ouverts ou en présence d'un tiers.</p>
-                    <p>• Garder une distance professionnelle (pas de réseaux sociaux personnels).</p>
-                    <p>• Tracer tous les entretiens individuels par un écrit.</p>
-                </div>
+            <div class="flex items-center space-x-4">
+                <div class="w-12 h-12 bg-slate-800 rounded flex items-center justify-center text-[8px] text-center italic">Logo MPF 78</div>
+                <p class="text-[10px] opacity-60">Maison de Protection des Familles des Yvelines</p>
             </div>
-        </div>
-
-        <div class="accordion-item bg-white rounded-lg shadow-sm border border-slate-200">
-            <button onclick="toggleAccordion(this)" class="w-full flex justify-between items-center p-5 text-left font-bold text-slate-800">
-                <span><i class="fas fa-hand-paper mr-3 text-red-600"></i> Aide aux auteurs / Dispositif STOP</span>
-                <i class="fas fa-chevron-down chevron transition-transform text-slate-400"></i>
-            </button>
-            <div class="accordion-content bg-slate-50">
-                <div class="p-5 border-t border-slate-100 text-center">
-                    <p class="text-sm mb-4">Prévenir le passage à l'acte est une priorité pour protéger les mineurs.</p>
-                    <div class="bg-red-600 text-white p-4 rounded-lg">
-                        <h4 class="font-bold">DISPOSITIF STOP</h4>
-                        <p class="text-xs mb-3">Anonyme et gratuit</p>
-                        <a href="tel:0806231063" class="block bg-white text-red-600 font-bold py-2 rounded shadow-inner">0806 23 10 63</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-    </main>
-
-    <footer class="bg-slate-900 text-white pt-10 pb-6 px-6 mt-10">
-        <div class="max-w-2xl mx-auto space-y-8">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div>
-                    <h3 class="text-blue-400 font-bold mb-3 uppercase text-xs tracking-widest">Urgence 24h/24</h3>
-                    <div class="space-y-2 font-bold">
-                        <a href="tel:119" class="block hover:text-blue-300">119 <span class="text-xs font-normal opacity-70 ml-2">Enfance en danger</span></a>
-                        <a href="tel:17" class="block hover:text-blue-300">17 <span class="text-xs font-normal opacity-70 ml-2">Gendarmerie / Police</span></a>
-                        <a href="tel:114" class="block hover:text-blue-300">114 <span class="text-xs font-normal opacity-70 ml-2 text-white">Alerte SMS</span></a>
-                    </div>
-                </div>
-                <div class="flex flex-col items-center md:items-end justify-center">
-                    <div class="w-32 h-32 bg-slate-800 rounded border border-slate-700 flex items-center justify-center text-center p-4 italic text-[10px]">
-                        [LOGO MPF 78 ICI]
-                    </div>
-                </div>
-            </div>
-            <p class="text-center text-[10px] opacity-40 uppercase tracking-tighter border-t border-slate-800 pt-6">
-                &copy; 2026 Maison de Protection des Familles des Yvelines (Gendarmerie Nationale)
-            </p>
         </div>
     </footer>
 
     <script>
-        function toggleAccordion(button) {
-            const item = button.parentElement;
-            const isActive = item.classList.contains('active');
-            
-            // Ferme tous les autres items
-            document.querySelectorAll('.accordion-item').forEach(el => {
-                el.classList.remove('active');
+        function showPage(pageId) {
+            // Masquer toutes les pages
+            document.querySelectorAll('.page-content').forEach(page => {
+                page.classList.remove('active');
             });
-
-            // Si l'item n'était pas actif, on l'ouvre
-            if (!isActive) {
-                item.classList.add('active');
-            }
+            // Afficher la page demandée
+            document.getElementById(pageId).classList.add('active');
+            // Remonter en haut de page
+            window.scrollTo(0,0);
         }
     </script>
 </body>
